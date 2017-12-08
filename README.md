@@ -1,12 +1,16 @@
 # nodeschool-berlin-bot
 
-> a GitHub App built with [probot](https://github.com/probot/probot) that 
+> a GitHub App built with [probot](https://github.com/probot/probot) that
 
 ## Setup
 
 ```
 # Install dependencies
 npm install
+
+# local development server thingy
+npm install -g localtunnel
+lt --port 8000
 
 # Run the bot
 npm start
