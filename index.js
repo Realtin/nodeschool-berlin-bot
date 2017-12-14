@@ -19,7 +19,6 @@ module.exports = robot => {
     const labels = issueLabels.data.map(label => label.name)
     if (!labels.includes('next-event')) return
 
-
     context.github.issues.removeLabel(Object.assign(issueRef, {name: 'next-event'}))
     context.github.issues.addLabels(Object.assign(issueRef, {labels: [{name: 'past-event'}]}))
 
@@ -35,7 +34,7 @@ module.exports = robot => {
     }))
     removeEventFromWebsite(repoRef, nextEventIssue.data.number, nextNodeschoolNumber)
 
-    async function removeEventFromWebsite  (repoRef, issueNumber, nextNodeschoolNumber) {
+    async function removeEventFromWebsite (repoRef, issueNumber, nextNodeschoolNumber) {
       const path = 'website.json'
       const res = await context.github.repos.getContent(Object.assign(repoRef, {path}))
       const {sha, content} = res.data
@@ -48,7 +47,7 @@ module.exports = robot => {
         path,
         sha,
         content: base64content,
-        message: 'remove event from website',
+        message: 'remove event from website'
       }))
     }
   })
